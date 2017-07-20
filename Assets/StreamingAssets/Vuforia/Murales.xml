@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="interesni-kazki-target" size="1.000000 1.992920" />
-    <ImageTarget name="Spaik" size="50.000000 22.075783" />
+    <ImageTarget name="Spaik" size="50.000000 22.345484" />
+    <ImageTarget name="Muro_Censurado" size="50.000000 22.953020" />
+    <ImageTarget name="Interesni" size="50.000000 50.000000" />
+    <ImageTarget name="Censored_wall_black" size="50.000000 18.652849" />
+    <ImageTarget name="Gaucholadri" size="50.000000 33.986927" />
   </Tracking>
 </QCARConfig>

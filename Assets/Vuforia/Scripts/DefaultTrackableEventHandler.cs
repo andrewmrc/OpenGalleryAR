@@ -5,6 +5,7 @@ Confidential and Proprietary - Protected under copyright and other laws.
 ==============================================================================*/
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Vuforia
 {
@@ -14,6 +15,13 @@ namespace Vuforia
     public class DefaultTrackableEventHandler : MonoBehaviour,
                                                 ITrackableEventHandler
     {
+        Canvas uiCanvas;
+
+        void Awake()
+        {
+            uiCanvas = FindObjectOfType<Canvas>();
+        }
+
         #region PRIVATE_MEMBER_VARIABLES
  
         private TrackableBehaviour mTrackableBehaviour;
@@ -84,6 +92,10 @@ namespace Vuforia
             }
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+
+            uiCanvas.transform.GetChild(0).GetComponent<Text>().text = this.GetComponent<Murales>().name;
+            uiCanvas.transform.GetChild(1).GetComponent<Text>().text = this.GetComponent<Murales>().author;
+            uiCanvas.transform.GetChild(2).GetComponent<Text>().text = this.GetComponent<Murales>().year;
         }
 
 
@@ -105,6 +117,10 @@ namespace Vuforia
             }
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
+
+            uiCanvas.transform.GetChild(0).GetComponent<Text>().text = "";
+            uiCanvas.transform.GetChild(1).GetComponent<Text>().text = "";
+            uiCanvas.transform.GetChild(2).GetComponent<Text>().text = "";
         }
 
         #endregion // PRIVATE_METHODS
