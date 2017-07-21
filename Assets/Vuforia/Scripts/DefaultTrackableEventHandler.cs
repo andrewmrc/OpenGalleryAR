@@ -92,10 +92,16 @@ namespace Vuforia
             }
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+            
+            
+            uiCanvas.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = this.GetComponent<Murales>().name;
+            uiCanvas.transform.GetChild(0).GetComponent<CanvasGroup>().alpha = 1;
+            
+            uiCanvas.transform.GetChild(1).transform.GetChild(0).GetComponent<Text>().text = this.GetComponent<Murales>().author;
+            uiCanvas.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = 1;
 
-            uiCanvas.transform.GetChild(0).GetComponent<Text>().text = this.GetComponent<Murales>().name;
-            uiCanvas.transform.GetChild(1).GetComponent<Text>().text = this.GetComponent<Murales>().author;
-            uiCanvas.transform.GetChild(2).GetComponent<Text>().text = this.GetComponent<Murales>().year;
+            uiCanvas.transform.GetChild(2).transform.GetChild(0).GetComponent<Text>().text = this.GetComponent<Murales>().year;
+            uiCanvas.transform.GetChild(2).GetComponent<CanvasGroup>().alpha = 1;
         }
 
 
@@ -118,9 +124,14 @@ namespace Vuforia
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
 
-            uiCanvas.transform.GetChild(0).GetComponent<Text>().text = "";
-            uiCanvas.transform.GetChild(1).GetComponent<Text>().text = "";
-            uiCanvas.transform.GetChild(2).GetComponent<Text>().text = "";
+            uiCanvas.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = "";
+            uiCanvas.transform.GetChild(0).GetComponent<CanvasGroup>().alpha = 0;
+
+            uiCanvas.transform.GetChild(1).transform.GetChild(0).GetComponent<Text>().text = "";
+            uiCanvas.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = 0;
+
+            uiCanvas.transform.GetChild(2).transform.GetChild(0).GetComponent<Text>().text = "";
+            uiCanvas.transform.GetChild(2).GetComponent<CanvasGroup>().alpha = 0;
         }
 
         #endregion // PRIVATE_METHODS
