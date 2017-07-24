@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="Multiverse" size="50.000000 38.689808" />
+    <ImageTarget name="MultiverseP1" size="50.000000 45.312500" />
+    <ImageTarget name="MultiverseP2" size="50.000000 57.187992" />
+    <ImageTarget name="Yoshinobu-Tatewaki-Pablo-Peluz" size="50.000000 80.281693" />
+    <ImageTarget name="Yoshinobu-Tatewaki-Pablo" size="50.000000 26.849894" />
     <ImageTarget name="interesni-kazki_ibiza" size="50.000000 26.258205" />
     <ImageTarget name="Interesni" size="50.000000 99.119720" />
     <ImageTarget name="Muro_Censurado" size="50.000000 22.796934" />
