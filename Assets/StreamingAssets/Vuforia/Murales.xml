@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="BToy" size="50.000000 28.483921" />
+    <ImageTarget name="serpente" size="50.000000 53.314392" />
+    <ImageTarget name="gelato" size="50.000000 68.596489" />
+    <ImageTarget name="PhlegmControl" size="50.000000 69.688644" />
+    <ImageTarget name="PhlegmUK" size="50.000000 43.294460" />
+    <ImageTarget name="PhlegmP2" size="50.000000 23.462355" />
+    <ImageTarget name="PhlegmP1" size="50.000000 72.727272" />
+    <ImageTarget name="Phlegm" size="50.000000 37.631027" />
+    <ImageTarget name="Malarky" size="50.000000 15.745568" />
+    <ImageTarget name="EmilioCejalvo" size="50.000000 19.444445" />
+    <ImageTarget name="Fikos" size="50.000000 18.957220" />
+    <ImageTarget name="LaBruma" size="50.000000 10.448276" />
+    <ImageTarget name="Cruz" size="50.000000 47.959183" />
+    <ImageTarget name="Apparence" size="50.000000 29.166666" />
+    <ImageTarget name="ShadowOfYourReflection" size="50.000000 50.220913" />
+    <ImageTarget name="Cuellimangui" size="50.000000 26.955521" />
+    <ImageTarget name="Intersni_2" size="50.000000 99.119720" />
+    <ImageTarget name="Interesni" size="50.000000 79.336731" />
+    <ImageTarget name="INTI" size="50.000000 50.983147" />
+    <ImageTarget name="Bisser" size="50.000000 24.567474" />
+    <ImageTarget name="La_Trampa" size="50.000000 35.164143" />
+    <ImageTarget name="pekolejo" size="50.000000 15.354671" />
+    <ImageTarget name="Multiverse" size="50.000000 38.689808" />
+    <ImageTarget name="MultiverseP1" size="50.000000 45.312500" />
+    <ImageTarget name="MultiverseP2" size="50.000000 57.187992" />
+    <ImageTarget name="Yoshinobu-Tatewaki-Pablo-Peluz" size="50.000000 80.281693" />
+    <ImageTarget name="Yoshinobu-Tatewaki-Pablo" size="50.000000 26.849894" />
+    <ImageTarget name="interesni-kazki_ibiza" size="50.000000 26.258205" />
+    <ImageTarget name="Muro_Censurado" size="50.000000 22.796934" />
+    <ImageTarget name="Censored_wall_black" size="50.000000 19.371727" />
+    <ImageTarget name="The_Revolution" size="50.000000 33.625000" />
+    <ImageTarget name="Spaik" size="50.000000 29.166666" />
+    <ImageTarget name="Pelucas" size="50.000000 40.784313" />
+    <ImageTarget name="Gaucholadri" size="50.000000 33.986927" />
+  </Tracking>
+</QCARConfig>
