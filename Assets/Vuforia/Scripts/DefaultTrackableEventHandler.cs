@@ -94,7 +94,7 @@ namespace Vuforia
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
             
             
-            uiCanvas.transform.GetChild(0).transform.GetChild(1).GetComponent<Text>().text = "Name : " + this.GetComponent<Murales>().name;
+            uiCanvas.transform.GetChild(0).transform.GetChild(1).GetComponent<Text>().text = "Theme : " + this.GetComponent<Murales>().name;
             uiCanvas.transform.GetChild(0).GetComponent<CanvasGroup>().alpha = 1;
             
             uiCanvas.transform.GetChild(1).transform.GetChild(1).GetComponent<Text>().text = "Author : " + this.GetComponent<Murales>().author;
@@ -102,6 +102,9 @@ namespace Vuforia
 
             uiCanvas.transform.GetChild(2).transform.GetChild(1).GetComponent<Text>().text = "Year : " + this.GetComponent<Murales>().year;
             uiCanvas.transform.GetChild(2).GetComponent<CanvasGroup>().alpha = 1;
+
+            uiCanvas.transform.GetChild(3).transform.GetChild(1).GetComponent<Text>().text = "Name : " + this.GetComponent<Murales>().nameOfMurales;
+            uiCanvas.transform.GetChild(3).GetComponent<CanvasGroup>().alpha = 1;
         }
 
 
@@ -132,6 +135,9 @@ namespace Vuforia
 
             uiCanvas.transform.GetChild(2).transform.GetChild(1).GetComponent<Text>().text = "";
             uiCanvas.transform.GetChild(2).GetComponent<CanvasGroup>().alpha = 0;
+
+            uiCanvas.transform.GetChild(3).transform.GetChild(1).GetComponent<Text>().text = "";
+            uiCanvas.transform.GetChild(3).GetComponent<CanvasGroup>().alpha = 0;
         }
 
         #endregion // PRIVATE_METHODS
