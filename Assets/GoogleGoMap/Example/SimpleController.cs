@@ -16,6 +16,9 @@ namespace Assets.SimpleAndroidNotifications
 
         public RectTransform notificationPanel;
 
+        public GameObject infoText;
+        public GameObject nameText;
+
         void Start()
         {
             // Store reference to attached component
@@ -28,8 +31,8 @@ namespace Assets.SimpleAndroidNotifications
             {
                 NotificationManager.Send(TimeSpan.FromSeconds(1), coll.GetComponent<InfoArea>().name, coll.GetComponent<InfoArea>().info, new Color(1, 0.3f, 0.15f));
                 notificationPanel.GetComponent<CanvasGroup>().alpha = 1;
-                notificationPanel.transform.GetChild(0).GetComponent<Text>().text = coll.GetComponent<InfoArea>().info;
-                notificationPanel.transform.GetChild(1).GetComponent<Text>().text = coll.GetComponent<InfoArea>().name;
+                infoText.GetComponent<Text>().text = coll.GetComponent<InfoArea>().info;
+                nameText.GetComponent<Text>().text = coll.GetComponent<InfoArea>().name;
                 Debug.Log(coll.GetComponent<InfoArea>().name + " : " + coll.GetComponent<InfoArea>().info);
                 coll.gameObject.SetActive(false);
             }

@@ -11,18 +11,18 @@ public class SwitchCamera : MonoBehaviour {
     Camera cGoogle;
     public Button buttonSwitch;
     
-    bool google = true;
+    public bool activateMap = true;
 
     private void Start()
     {
         cVuforia = cameraGoogle.GetComponent<Camera>();
         cGoogle = cameraVuforia.GetComponent<Camera>();
-        
+        EnableGoogle();
     }
 
     public void EnableGoogle()
     {
-        if (google == false)
+        if (activateMap == false)
         {
             cVuforia.enabled = false;
             cGoogle.enabled = true;
@@ -30,20 +30,25 @@ public class SwitchCamera : MonoBehaviour {
             img.sprite = Resources.Load<Sprite>("map"); 
             
 
-            google = true;
+            activateMap = true;
         }
-        else if (google == true)
+        else if (activateMap == true)
         {
             cVuforia.enabled = true;
             cGoogle.enabled = false;
             Image img = buttonSwitch.GetComponent<Image>();
             img.sprite = Resources.Load<Sprite>("murales");
 
-            google = false;
+            activateMap = false;
         }
 		
 	}
 	
 	
-	
+	public void ActivateMode(bool mode)
+    {
+        activateMap = mode;
+        EnableGoogle();
+    }
+
 }
