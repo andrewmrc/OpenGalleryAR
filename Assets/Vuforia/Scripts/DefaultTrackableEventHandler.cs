@@ -94,17 +94,15 @@ namespace Vuforia
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
             
             
-            uiCanvas.transform.GetChild(0).transform.GetChild(1).GetComponent<Text>().text = "Theme : " + this.GetComponent<Murales>().name;
-            uiCanvas.transform.GetChild(0).GetComponent<CanvasGroup>().alpha = 1;
-            
-            uiCanvas.transform.GetChild(1).transform.GetChild(1).GetComponent<Text>().text = "Author : " + this.GetComponent<Murales>().author;
-            uiCanvas.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = 1;
+            uiCanvas.GetComponent<CanvasElements>().festivalThem_Text.text = this.GetComponent<Murales>().name;
 
-            uiCanvas.transform.GetChild(2).transform.GetChild(1).GetComponent<Text>().text = "Year : " + this.GetComponent<Murales>().year;
-            uiCanvas.transform.GetChild(2).GetComponent<CanvasGroup>().alpha = 1;
+            uiCanvas.GetComponent<CanvasElements>().artistName_Text.text = this.GetComponent<Murales>().author;
 
-            uiCanvas.transform.GetChild(3).transform.GetChild(1).GetComponent<Text>().text = "Name : " + this.GetComponent<Murales>().nameOfMurales;
-            uiCanvas.transform.GetChild(3).GetComponent<CanvasGroup>().alpha = 1;
+            uiCanvas.GetComponent<CanvasElements>().year_Text.text = this.GetComponent<Murales>().year;
+
+            uiCanvas.GetComponent<CanvasElements>().muralName_Text.text = this.GetComponent<Murales>().nameOfMurales;
+
+            uiCanvas.GetComponent<CanvasElements>().panelInfoAR.GetComponent<CanvasGroup>().alpha = 1;
         }
 
 
@@ -127,17 +125,15 @@ namespace Vuforia
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
 
-            uiCanvas.transform.GetChild(0).transform.GetChild(1).GetComponent<Text>().text = "";
-            uiCanvas.transform.GetChild(0).GetComponent<CanvasGroup>().alpha = 0;
+            uiCanvas.GetComponent<CanvasElements>().festivalThem_Text.text = "";
 
-            uiCanvas.transform.GetChild(1).transform.GetChild(1).GetComponent<Text>().text = "";
-            uiCanvas.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = 0;
+            uiCanvas.GetComponent<CanvasElements>().artistName_Text.text = "";
 
-            uiCanvas.transform.GetChild(2).transform.GetChild(1).GetComponent<Text>().text = "";
-            uiCanvas.transform.GetChild(2).GetComponent<CanvasGroup>().alpha = 0;
+            uiCanvas.GetComponent<CanvasElements>().year_Text.text = "";
 
-            uiCanvas.transform.GetChild(3).transform.GetChild(1).GetComponent<Text>().text = "";
-            uiCanvas.transform.GetChild(3).GetComponent<CanvasGroup>().alpha = 0;
+            uiCanvas.GetComponent<CanvasElements>().muralName_Text.text = "";
+
+            uiCanvas.GetComponent<CanvasElements>().panelInfoAR.GetComponent<CanvasGroup>().alpha = 0;
         }
 
         #endregion // PRIVATE_METHODS
