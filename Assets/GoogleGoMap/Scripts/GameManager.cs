@@ -220,6 +220,20 @@ public class GameManager : Singleton<GameManager> {
         coordLong = EventSystem.current.currentSelectedGameObject.GetComponent<Murales>().lon_d.ToString();
         coordLat = EventSystem.current.currentSelectedGameObject.GetComponent<Murales>().lat_d.ToString();
         Application.OpenURL("http://maps.google.com/maps/dir/?api=1&destination="+ coordLat + "," + coordLong);
+        //StartPackage("com.google.android.apps.maps");
+    }
+
+
+    void StartPackage(string package)
+    {
+        AndroidJavaClass unityClass;
+        AndroidJavaObject unityObject, packageManager;
+        AndroidJavaObject launch;
+        unityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        unityObject = unityClass.GetStatic<AndroidJavaObject>("currentActivity");
+        packageManager = unityObject.Call<AndroidJavaObject>("getPackageManager");
+        launch = packageManager.Call<AndroidJavaObject>("getLaunchIntentForPackage", package);
+        unityObject.Call("startActivity", launch);
     }
 
 }
