@@ -9,14 +9,12 @@ public class Murales : MonoBehaviour {
     public string author;
     public string year;
 
-	void Start ()
+    public float lat_d = 0.0f, lon_d = 0.0f;
+
+    void Start ()
     {
         if (nameOfMurales == "")
             nameOfMurales = "-";
 	}
-	
-	
-	void Update () {
-		
-	}
+
 }

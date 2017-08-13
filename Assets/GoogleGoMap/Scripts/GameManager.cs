@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 public class GameManager : Singleton<GameManager> {
 
@@ -14,7 +16,20 @@ public class GameManager : Singleton<GameManager> {
 	public GeoPoint playerGeoPosition;
 	public PlayerLocationService player_loc;
 
-	public enum PlayerStatus { TiedToDevice, FreeFromDevice }
+    public List<GameObject> muralesButtonFull = new List<GameObject>();
+    public List<GameObject> muralesButtonFound = new List<GameObject>();
+
+    public GameObject artistInputField;
+    public GameObject yearInputField;
+
+    public GameObject retryButton;
+
+    bool somethingFound;
+
+    string coordLong;
+    string coordLat;
+
+    public enum PlayerStatus { TiedToDevice, FreeFromDevice }
 
 	private PlayerStatus _playerStatus;
 	public PlayerStatus playerStatus
@@ -125,5 +140,86 @@ public class GameManager : Singleton<GameManager> {
 		Vector3 location = ray.GetPoint (distance);
 		return location;
 	}
+
+
+    public void SearchByArtist ()
+    {
+        retryButton.SetActive(false);
+        string nameTypedIn = artistInputField.gameObject.GetComponent<InputField>().text;
+        yearInputField.gameObject.GetComponent<InputField>().text = "";
+        somethingFound = false;
+
+        for (int i = 0; i < muralesButtonFull.Count; i++)
+        {
+            string thisArtistName = muralesButtonFull[i].GetComponent<Murales>().author.ToLower();
+            Debug.Log(nameTypedIn.ToString());
+            if (thisArtistName.Contains(nameTypedIn.ToString().ToLower()))
+            {
+                muralesButtonFull[i].SetActive(true);
+                somethingFound = true;
+            }
+            else
+            {
+                muralesButtonFull[i].SetActive(false);
+            }
+        }
+
+        if (!somethingFound)
+        {
+            retryButton.SetActive(true);
+        }
+    }
+
+
+    public void SearchByYear()
+    {
+        retryButton.SetActive(false);
+        string yearTypedIn = yearInputField.gameObject.GetComponent<InputField>().text;
+        artistInputField.gameObject.GetComponent<InputField>().text = "";
+        somethingFound = false;
+
+        for (int i = 0; i < muralesButtonFull.Count; i++)
+        {
+            string thisMuralYear = muralesButtonFull[i].GetComponent<Murales>().year.ToLower();
+            Debug.Log(yearTypedIn.ToString());
+            if (thisMuralYear.Contains(yearTypedIn.ToString().ToLower()))
+            {
+                muralesButtonFull[i].SetActive(true);
+                somethingFound = true;
+            }
+            else
+            {
+                muralesButtonFull[i].SetActive(false);
+            }
+        }
+
+
+        if (!somethingFound)
+        {
+            retryButton.SetActive(true);
+        }
+
+    }
+
+
+    public void SearchDelete()
+    {
+        artistInputField.gameObject.GetComponent<InputField>().text = "";
+        yearInputField.gameObject.GetComponent<InputField>().text = "";
+        retryButton.SetActive(false);
+        somethingFound = false;
+        for (int i = 0; i < muralesButtonFull.Count; i++)
+        {
+            muralesButtonFull[i].SetActive(true);
+        }
+    }
+
+
+    public void OpenGoogleMaps ()
+    {
+        coordLong = EventSystem.current.currentSelectedGameObject.GetComponent<Murales>().lon_d.ToString();
+        coordLat = EventSystem.current.currentSelectedGameObject.GetComponent<Murales>().lat_d.ToString();
+        Application.OpenURL("http://maps.google.com/maps/dir/?api=1&destination="+ coordLat + "," + coordLong);
+    }
 
 }
