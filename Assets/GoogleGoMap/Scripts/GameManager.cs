@@ -20,9 +20,11 @@ public class GameManager : Singleton<GameManager> {
     public List<GameObject> muralesButtonFound = new List<GameObject>();
 
     public GameObject artistInputField;
-    public GameObject yearInputField;
+    public GameObject cityInputField;
 
     public GameObject retryButton;
+
+    public GameObject menuPanel;
 
     bool somethingFound;
 
@@ -82,7 +84,21 @@ public class GameManager : Singleton<GameManager> {
     }
 
     void Update () {
-		if(!locationServicesIsRunning){
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (!menuPanel.activeInHierarchy)
+            {
+                BackButton();
+            }
+            else
+            {
+                Application.Quit();
+            }
+        }
+
+
+        if (!locationServicesIsRunning){
 
 			//TODO: Show location service is not enabled error. 
 			return;
@@ -142,11 +158,17 @@ public class GameManager : Singleton<GameManager> {
 	}
 
 
-    public void SearchByArtist ()
+    public void BackButton()
+    {
+        menuPanel.SetActive(true);
+    }
+
+
+        public void SearchByArtist ()
     {
         retryButton.SetActive(false);
         string nameTypedIn = artistInputField.gameObject.GetComponent<InputField>().text;
-        yearInputField.gameObject.GetComponent<InputField>().text = "";
+        cityInputField.gameObject.GetComponent<InputField>().text = "";
         somethingFound = false;
 
         for (int i = 0; i < muralesButtonFull.Count; i++)
@@ -171,18 +193,18 @@ public class GameManager : Singleton<GameManager> {
     }
 
 
-    public void SearchByYear()
+    public void SearchByCity()
     {
         retryButton.SetActive(false);
-        string yearTypedIn = yearInputField.gameObject.GetComponent<InputField>().text;
+        string cityTypedIn = cityInputField.gameObject.GetComponent<InputField>().text;
         artistInputField.gameObject.GetComponent<InputField>().text = "";
         somethingFound = false;
 
         for (int i = 0; i < muralesButtonFull.Count; i++)
         {
-            string thisMuralYear = muralesButtonFull[i].GetComponent<Murales>().year.ToLower();
-            Debug.Log(yearTypedIn.ToString());
-            if (thisMuralYear.Contains(yearTypedIn.ToString().ToLower()))
+            string thisMuralCity = muralesButtonFull[i].GetComponent<Murales>().city.ToLower();
+            Debug.Log(cityTypedIn.ToString());
+            if (thisMuralCity.Contains(cityTypedIn.ToString().ToLower()))
             {
                 muralesButtonFull[i].SetActive(true);
                 somethingFound = true;
@@ -205,7 +227,7 @@ public class GameManager : Singleton<GameManager> {
     public void SearchDelete()
     {
         artistInputField.gameObject.GetComponent<InputField>().text = "";
-        yearInputField.gameObject.GetComponent<InputField>().text = "";
+        cityInputField.gameObject.GetComponent<InputField>().text = "";
         retryButton.SetActive(false);
         somethingFound = false;
         for (int i = 0; i < muralesButtonFull.Count; i++)
