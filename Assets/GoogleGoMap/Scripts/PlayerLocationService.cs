@@ -28,7 +28,7 @@ public class PlayerLocationService : MonoBehaviour {
 			//NOTE: If location is not enabled, we initialize the postion of the player to somewhere in Ibiza, just for demonstration purposes
 			loc.setLatLon_deg (38.906483f, 1.420464f); 
 
-			GameManager.Instance.playerStatus = GameManager.PlayerStatus.FreeFromDevice;
+			//GameManager.Instance.playerStatus = GameManager.PlayerStatus.FreeFromDevice;
 			// To get the game run on Editor without location services
 			locServiceIsRunning = true;
 			yield break;
@@ -56,7 +56,7 @@ public class PlayerLocationService : MonoBehaviour {
 			print("Location services failed");
 			yield break;
 		} else if (Input.location.status == LocationServiceStatus.Running){
-			GameManager.Instance.playerStatus = GameManager.PlayerStatus.TiedToDevice;
+			//GameManager.Instance.playerStatus = GameManager.PlayerStatus.TiedToDevice;
 			loc.setLatLon_deg (Input.location.lastData.latitude, Input.location.lastData.longitude);
 			Debug.Log ("Location: " + Input.location.lastData.latitude.ToString ("R") + " " + Input.location.lastData.longitude.ToString ("R") + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
 			locServiceIsRunning = true;
