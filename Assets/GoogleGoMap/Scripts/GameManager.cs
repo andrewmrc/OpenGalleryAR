@@ -17,7 +17,6 @@ public class GameManager : Singleton<GameManager> {
 	public PlayerLocationService player_loc;
 
     public List<GameObject> muralesButtonFull = new List<GameObject>();
-    public List<GameObject> muralesButtonFound = new List<GameObject>();
 
     public GameObject artistInputField;
     public GameObject cityInputField;
