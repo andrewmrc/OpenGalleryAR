@@ -25,6 +25,9 @@ public class GameManager : Singleton<GameManager> {
 
     public GameObject menuPanel;
 
+    public GameObject biokipIcon;
+    public List<GameObject> festivalIconList = new List<GameObject>();
+
     bool somethingFound;
 
     string coordLong;
@@ -243,6 +246,29 @@ public class GameManager : Singleton<GameManager> {
         //Application.OpenURL("http://maps.google.com/maps/dir/?api=1&destination="+ coordLat + "," + coordLong);
         Application.OpenURL("http://maps.google.com/maps?daddr=" + coordLat + "," + coordLong);
 
+    }
+
+
+    public void IconActivator(int code)
+    {
+        for (int i = 0; i < festivalIconList.Count; i++)
+        {
+            if (i == code)
+            {
+                festivalIconList[i].gameObject.SetActive(true);
+            }
+        }
+        biokipIcon.gameObject.SetActive(false);
+    }
+
+
+    public void IconDeactivator()
+    {
+        for (int i = 0; i < festivalIconList.Count; i++)
+        {            
+          festivalIconList[i].gameObject.SetActive(false);
+        }
+        biokipIcon.gameObject.SetActive(true);
     }
 
 }
