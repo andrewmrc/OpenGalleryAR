@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="LogoBloop" size="50.000000 20.003529" />
+    <ImageTarget name="AdesivoBloop" size="50.000000 17.286392" />
     <ImageTarget name="BToy" size="50.000000 28.483921" />
     <ImageTarget name="serpente" size="50.000000 53.314392" />
     <ImageTarget name="gelato" size="50.000000 68.596489" />
