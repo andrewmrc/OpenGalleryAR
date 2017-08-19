@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="Spaik2_RealWorld" size="50.000000 66.666664" />
+    <ImageTarget name="Spaik_RealWorld" size="50.000000 66.666664" />
+    <ImageTarget name="La_Trampa_RealWorld" size="50.000000 66.666664" />
+    <ImageTarget name="The_Revolution_RealWorld" size="50.000000 66.666664" />
+    <ImageTarget name="serpente3_RealWorld" size="50.000000 66.666664" />
+    <ImageTarget name="serpente2_RealWorld" size="50.000000 66.666664" />
+    <ImageTarget name="serpente_RealWorld" size="50.000000 66.666664" />
+    <ImageTarget name="INTI_RealWorld" size="50.000000 66.666664" />
+    <ImageTarget name="Intersni_RealWorld" size="50.000000 66.666664" />
     <ImageTarget name="pekolejo2" size="50.000000 29.127293" />
     <ImageTarget name="pekolejo" size="50.000000 27.206646" />
     <ImageTarget name="LogoBloop" size="50.000000 20.003529" />
