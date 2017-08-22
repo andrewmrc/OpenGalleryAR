@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="mtn_11" size="50.000000 9.482759" />
+    <ImageTarget name="mtn_10" size="50.000000 9.482759" />
+    <ImageTarget name="mtn_9" size="50.000000 50.000000" />
+    <ImageTarget name="mtn_8" size="50.000000 50.000000" />
+    <ImageTarget name="mtn_7" size="50.000000 43.766579" />
+    <ImageTarget name="mtn_6" size="50.000000 43.766579" />
+    <ImageTarget name="mtn_3" size="50.000000 36.744186" />
+    <ImageTarget name="mtn_2" size="50.000000 38.636364" />
+    <ImageTarget name="mtn_1" size="50.000000 38.636364" />
     <ImageTarget name="Spaik2_RealWorld" size="50.000000 66.666664" />
     <ImageTarget name="Spaik_RealWorld" size="50.000000 66.666664" />
     <ImageTarget name="La_Trampa_RealWorld" size="50.000000 66.666664" />
