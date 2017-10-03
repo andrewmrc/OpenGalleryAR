@@ -33,57 +33,65 @@ public class GameManager : Singleton<GameManager> {
     string coordLong;
     string coordLat;
 
- //   public enum PlayerStatus { TiedToDevice, FreeFromDevice }
+    public GameObject canvasPrincipale;
+    public OnlineMaps omElements;
 
-	//private PlayerStatus _playerStatus;
-	//public PlayerStatus playerStatus
-	//{
-	//	get { return _playerStatus; }
-	//	set { _playerStatus = value; }
-	//}
+    private void Start()
+    {
+        //StartCoroutine(DelayOnlineMap());
+    }
 
-	//void Awake (){
+    //   public enum PlayerStatus { TiedToDevice, FreeFromDevice }
 
-	//	Time.timeScale = 1;
-	//	playerStatus = PlayerStatus.TiedToDevice;
+    //private PlayerStatus _playerStatus;
+    //public PlayerStatus playerStatus
+    //{
+    //	get { return _playerStatus; }
+    //	set { _playerStatus = value; }
+    //}
 
-	//	player_loc = player.GetComponent<PlayerLocationService>();
-	//	newMap.GetComponent<MeshRenderer>().enabled = false;
-	//	newMap.SetActive (false);
+    //void Awake (){
 
-	//}
+    //	Time.timeScale = 1;
+    //	playerStatus = PlayerStatus.TiedToDevice;
 
-	//public GoogleStaticMap getMainMapMap () {
-	//	return mainMap.GetComponent<GoogleStaticMap> ();
-	//}
+    //	player_loc = player.GetComponent<PlayerLocationService>();
+    //	newMap.GetComponent<MeshRenderer>().enabled = false;
+    //	newMap.SetActive (false);
 
-	//public GoogleStaticMap getNewMapMap () {
-	//	return newMap.GetComponent<GoogleStaticMap> ();
-	//}
+    //}
 
-	//IEnumerator Start () {
+    //public GoogleStaticMap getMainMapMap () {
+    //	return mainMap.GetComponent<GoogleStaticMap> ();
+    //}
 
-	//	getMainMapMap ().initialize ();
-	//	yield return StartCoroutine (player_loc._StartLocationService ());
-	//	StartCoroutine (player_loc.RunLocationService ());
+    //public GoogleStaticMap getNewMapMap () {
+    //	return newMap.GetComponent<GoogleStaticMap> ();
+    //}
 
-	//	locationServicesIsRunning = player_loc.locServiceIsRunning;
-	//	Debug.Log ("Player loc from GameManager: " + player_loc.loc);
-	//	getMainMapMap ().centerMercator = getMainMapMap ().tileCenterMercator (player_loc.loc);
-	//	getMainMapMap ().DrawMap ();
+    //IEnumerator Start () {
 
-	//	mainMap.transform.localScale = Vector3.Scale (
-	//		new Vector3 (getMainMapMap ().mapRectangle.getWidthMeters (), getMainMapMap ().mapRectangle.getHeightMeters (), 1.0f),
-	//		new Vector3 (getMainMapMap ().realWorldtoUnityWorldScale.x, getMainMapMap ().realWorldtoUnityWorldScale.y, 1.0f));
+    //	getMainMapMap ().initialize ();
+    //	yield return StartCoroutine (player_loc._StartLocationService ());
+    //	StartCoroutine (player_loc.RunLocationService ());
 
-	//	player.GetComponent<ObjectPosition> ().setPositionOnMap (player_loc.loc);
+    //	locationServicesIsRunning = player_loc.locServiceIsRunning;
+    //	Debug.Log ("Player loc from GameManager: " + player_loc.loc);
+    //	getMainMapMap ().centerMercator = getMainMapMap ().tileCenterMercator (player_loc.loc);
+    //	getMainMapMap ().DrawMap ();
 
-	//	GameObject[] objectsOnMap = GameObject.FindGameObjectsWithTag ("ObjectOnMap");
+    //	mainMap.transform.localScale = Vector3.Scale (
+    //		new Vector3 (getMainMapMap ().mapRectangle.getWidthMeters (), getMainMapMap ().mapRectangle.getHeightMeters (), 1.0f),
+    //		new Vector3 (getMainMapMap ().realWorldtoUnityWorldScale.x, getMainMapMap ().realWorldtoUnityWorldScale.y, 1.0f));
 
-	//	foreach (GameObject obj in objectsOnMap) {
-	//		obj.GetComponent<ObjectPosition> ().setPositionOnMap ();
-	//	}
- //   }
+    //	player.GetComponent<ObjectPosition> ().setPositionOnMap (player_loc.loc);
+
+    //	GameObject[] objectsOnMap = GameObject.FindGameObjectsWithTag ("ObjectOnMap");
+
+    //	foreach (GameObject obj in objectsOnMap) {
+    //		obj.GetComponent<ObjectPosition> ().setPositionOnMap ();
+    //	}
+    //   }
 
     void Update () {
 
@@ -247,6 +255,20 @@ public class GameManager : Singleton<GameManager> {
         Application.OpenURL("http://maps.google.com/maps?daddr=" + coordLat + "," + coordLong);
 
     }
+
+    IEnumerator DelayOnlineMap()
+    {
+        yield return new WaitForSeconds(0.5f);
+        omElements.enabled = false;
+    }
+
+    public void OpenTheMap()
+    {
+        canvasPrincipale.transform.GetChild(7).gameObject.SetActive(false);
+        omElements.enabled = true;
+       
+    }
+
 
 
     public void IconActivator(int code)

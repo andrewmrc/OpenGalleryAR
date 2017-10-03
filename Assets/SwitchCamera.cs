@@ -9,7 +9,7 @@ public class SwitchCamera : MonoBehaviour {
     public GameObject cameraGoogle;
     Camera cVuforia;
     Camera cGoogle;
-    public Button buttonSwitch;
+    //public Button buttonSwitch;
     
     public bool activateMap = true;
 
@@ -26,8 +26,8 @@ public class SwitchCamera : MonoBehaviour {
         {
             cVuforia.enabled = false;
             cGoogle.enabled = true;
-            Image img = buttonSwitch.GetComponent<Image>();
-            img.sprite = Resources.Load<Sprite>("map"); 
+            //Image img = buttonSwitch.GetComponent<Image>();
+            //img.sprite = Resources.Load<Sprite>("map"); 
             
 
             activateMap = true;
@@ -36,8 +36,8 @@ public class SwitchCamera : MonoBehaviour {
         {
             cVuforia.enabled = true;
             cGoogle.enabled = false;
-            Image img = buttonSwitch.GetComponent<Image>();
-            img.sprite = Resources.Load<Sprite>("murales");
+            //Image img = buttonSwitch.GetComponent<Image>();
+            //img.sprite = Resources.Load<Sprite>("murales");
 
             activateMap = false;
         }
