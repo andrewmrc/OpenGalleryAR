@@ -51,7 +51,7 @@ namespace InfinityCode.OnlineMapsExamples
                 Vector2 point;
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(container.transform as RectTransform, screenPosition, null, out point);
                 (tooltip.transform as RectTransform).localPosition = point;
-                tooltip.GetComponentInChildren<Text>().text = "Open Position";
+                tooltip.GetComponentInChildren<Text>().text = "Show Direction";
                 tooltip.transform.GetChild(1).GetComponent<Image>().sprite = Resources.Load<Sprite>("Murales_Preview/" + tooltipMarker.label);
                 tooltip.GetComponent<CopyInTheDataContainer>().coordLat = tooltipMarker.latitude.ToString();
                 tooltip.GetComponent<CopyInTheDataContainer>().coordLong = tooltipMarker.longitude.ToString();
@@ -64,6 +64,12 @@ namespace InfinityCode.OnlineMapsExamples
                 OnlineMapsUtils.DestroyImmediate(tooltip);
                 tooltip = null;
             }
+        }
+
+        public void DestroyTooltip()
+        {
+            OnlineMapsUtils.DestroyImmediate(tooltip);
+            tooltip = null;
         }
     }
 }
