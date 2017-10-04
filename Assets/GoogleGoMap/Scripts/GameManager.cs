@@ -37,7 +37,7 @@ public class GameManager : Singleton<GameManager> {
     double valueLat;
 
     public OnlineMaps onlineMapObject;
-   
+    private OnlineMapsMarkerBase activeMarker;
 
     private void Start()
     {
@@ -277,7 +277,14 @@ public class GameManager : Singleton<GameManager> {
         onlineMapObject.SetPositionAndZoom(valueLng, valueLat, 18);
 
 
-        
+
+
+        // If activeMarker exists, restore tooltip
+        if (activeMarker != null)
+        {
+            onlineMapObject.tooltipMarker = activeMarker;
+        }
+
         //StartCoroutine(ZoomInMap());
     }
 

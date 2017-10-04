@@ -29,7 +29,7 @@ namespace InfinityCode.OnlineMapsExamples
         private void OnMarkerClick(OnlineMapsMarkerBase marker)
         {
             OnlineMaps map = OnlineMaps.instance;
-            map.SetPosition(marker.longitude, marker.latitude);
+            map.SetPositionAndZoom(marker.longitude, marker.latitude, 18);
             Debug.Log(marker.label);
         }
     }

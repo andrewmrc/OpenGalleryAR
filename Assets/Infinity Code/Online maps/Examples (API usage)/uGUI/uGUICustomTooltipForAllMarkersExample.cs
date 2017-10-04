@@ -23,6 +23,8 @@ namespace InfinityCode.OnlineMapsExamples
         public Canvas container;
 
         private GameObject tooltip;
+        public CopyInTheDataContainer tooltipX;
+        OnlineMapsMarker tooltipMarker;
 
         private void Start()
         {
@@ -37,7 +39,7 @@ namespace InfinityCode.OnlineMapsExamples
 
         private void OnUpdateLate()
         {
-            OnlineMapsMarker tooltipMarker = OnlineMaps.instance.tooltipMarker as OnlineMapsMarker;
+            tooltipMarker = OnlineMaps.instance.tooltipMarker as OnlineMapsMarker;
            
             if (tooltipMarker != null)
             {
@@ -68,8 +70,16 @@ namespace InfinityCode.OnlineMapsExamples
 
         public void DestroyTooltip()
         {
-            OnlineMapsUtils.DestroyImmediate(tooltip);
-            tooltip = null;
+            Debug.LogWarning("CHIAMATO");
+            //tooltipX = FindObjectOfType<CopyInTheDataContainer>();
+            foreach (OnlineMapsMarker marker in OnlineMaps.instance.markers)
+            {
+                OnlineMaps.instance.RemoveAllDrawingElements();
+            }
+                
+            //OnlineMapsUtils.DestroyImmediate(tooltipX);
+            //tooltipX.gameObject.SetActive(false);
+
         }
     }
 }
