@@ -91,10 +91,10 @@ public class OnlineMapsMarkerBase: IOnlineMapsInteractiveElement
     protected bool _enabled = true;
 
     [SerializeField]
-    protected double latitude;
+    public double latitude;
 
     [SerializeField]
-    protected double longitude;
+    public double longitude;
 
     [SerializeField]
     protected float _scale = 1;

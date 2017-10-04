@@ -37,10 +37,15 @@ public class GameManager : Singleton<GameManager> {
     double valueLat;
 
     public OnlineMaps onlineMapObject;
+    public OnlineMapsMarkerBase markerbaseelements;
+
+   
+    
 
     private void Start()
     {
         //StartCoroutine(DelayOnlineMap());
+        
     }
 
     //   public enum PlayerStatus { TiedToDevice, FreeFromDevice }
@@ -109,51 +114,53 @@ public class GameManager : Singleton<GameManager> {
             }
         }
 
+       
+
 
   //      if (!locationServicesIsRunning){
 
-		//	//TODO: Show location service is not enabled error. 
-		//	return;
-		//}
+        //	//TODO: Show location service is not enabled error. 
+        //	return;
+        //}
 
-		//// playerGeoPosition = getMainMapMap ().getPositionOnMap(new Vector2(player.transform.position.x, player.transform.position.z));
-		//playerGeoPosition = new GeoPoint();
-		//// GeoPoint playerGeoPosition = getMainMapMap ().getPositionOnMap(new Vector2(player.transform.position.x, player.transform.position.z));
-		//if (playerStatus == PlayerStatus.TiedToDevice) {
-		//	playerGeoPosition = player_loc.loc;
-		//	player.GetComponent<ObjectPosition> ().setPositionOnMap (playerGeoPosition);
-		//} else if (playerStatus == PlayerStatus.FreeFromDevice){
-		//	playerGeoPosition = getMainMapMap ().getPositionOnMap(new Vector2(player.transform.position.x, player.transform.position.z));
-		//}
+        //// playerGeoPosition = getMainMapMap ().getPositionOnMap(new Vector2(player.transform.position.x, player.transform.position.z));
+        //playerGeoPosition = new GeoPoint();
+        //// GeoPoint playerGeoPosition = getMainMapMap ().getPositionOnMap(new Vector2(player.transform.position.x, player.transform.position.z));
+        //if (playerStatus == PlayerStatus.TiedToDevice) {
+        //	playerGeoPosition = player_loc.loc;
+        //	player.GetComponent<ObjectPosition> ().setPositionOnMap (playerGeoPosition);
+        //} else if (playerStatus == PlayerStatus.FreeFromDevice){
+        //	playerGeoPosition = getMainMapMap ().getPositionOnMap(new Vector2(player.transform.position.x, player.transform.position.z));
+        //}
 
 
-		//var tileCenterMercator = getMainMapMap ().tileCenterMercator (playerGeoPosition);
-		//if(!getMainMapMap ().centerMercator.isEqual(tileCenterMercator)) {
+        //var tileCenterMercator = getMainMapMap ().tileCenterMercator (playerGeoPosition);
+        //if(!getMainMapMap ().centerMercator.isEqual(tileCenterMercator)) {
 
-		//	newMap.SetActive(true);
-		//	getNewMapMap ().initialize ();
-		//	getNewMapMap ().centerMercator = tileCenterMercator;
+        //	newMap.SetActive(true);
+        //	getNewMapMap ().initialize ();
+        //	getNewMapMap ().centerMercator = tileCenterMercator;
 
-		//	getNewMapMap ().DrawMap ();
+        //	getNewMapMap ().DrawMap ();
 
-		//	getNewMapMap ().transform.localScale = Vector3.Scale(
-		//		new Vector3 (getNewMapMap ().mapRectangle.getWidthMeters (), getNewMapMap ().mapRectangle.getHeightMeters (), 1.0f),
-		//		new Vector3(getNewMapMap ().realWorldtoUnityWorldScale.x, getNewMapMap ().realWorldtoUnityWorldScale.y, 1.0f));	
+        //	getNewMapMap ().transform.localScale = Vector3.Scale(
+        //		new Vector3 (getNewMapMap ().mapRectangle.getWidthMeters (), getNewMapMap ().mapRectangle.getHeightMeters (), 1.0f),
+        //		new Vector3(getNewMapMap ().realWorldtoUnityWorldScale.x, getNewMapMap ().realWorldtoUnityWorldScale.y, 1.0f));	
 
-		//	Vector2 tempPosition = GameManager.Instance.getMainMapMap ().getPositionOnMap (getNewMapMap ().centerLatLon);
-		//	newMap.transform.position = new Vector3 (tempPosition.x, 0, tempPosition.y);
+        //	Vector2 tempPosition = GameManager.Instance.getMainMapMap ().getPositionOnMap (getNewMapMap ().centerLatLon);
+        //	newMap.transform.position = new Vector3 (tempPosition.x, 0, tempPosition.y);
 
-		//	GameObject temp = newMap;
-		//	newMap = mainMap;
-		//	mainMap = temp;
+        //	GameObject temp = newMap;
+        //	newMap = mainMap;
+        //	mainMap = temp;
 
-		//}
-		//if(getMainMapMap().isDrawn && mainMap.GetComponent<MeshRenderer>().enabled == false){
-		//	mainMap.GetComponent<MeshRenderer>().enabled = true;
-		//	newMap.GetComponent<MeshRenderer>().enabled = false;
-		//	newMap.SetActive(false);
-		//}
-	}
+        //}
+        //if(getMainMapMap().isDrawn && mainMap.GetComponent<MeshRenderer>().enabled == false){
+        //	mainMap.GetComponent<MeshRenderer>().enabled = true;
+        //	newMap.GetComponent<MeshRenderer>().enabled = false;
+        //	newMap.SetActive(false);
+        //}
+    }
 
 	public Vector3? ScreenPointToMapPosition(Vector2 point){
 		var ray = Camera.main.ScreenPointToRay(point);
@@ -255,8 +262,8 @@ public class GameManager : Singleton<GameManager> {
         coordLat = EventSystem.current.currentSelectedGameObject.GetComponent<Murales>().lat_d.ToString();
         //Application.OpenURL("http://maps.google.com/maps/dir/?api=1&destination="+ coordLat + "," + coordLong);
         Application.OpenURL("http://maps.google.com/maps?daddr=" + coordLat + "," + coordLong);
-
     }
+    
 
     IEnumerator DelayOnlineMap()
     {
@@ -271,8 +278,21 @@ public class GameManager : Singleton<GameManager> {
         menuPanel.gameObject.SetActive(false);
         onlineMapObject.enabled = true;
         onlineMapObject.SetPositionAndZoom(valueLng, valueLat, 18);
+
+
+        
         //StartCoroutine(ZoomInMap());
-    } 
+    }
+
+    
+
+    
+
+    public void OpenOnTheSea()
+    {
+        onlineMapObject.SetPositionAndZoom(38.821347, 2.053872);
+        
+    }
 
 
     //Serve un metodo che faccia fare lo zoom in modo smooth
@@ -305,4 +325,6 @@ public class GameManager : Singleton<GameManager> {
         biokipIcon.gameObject.SetActive(true);
     }
 
+    
 }
+

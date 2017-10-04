@@ -24,6 +24,8 @@ namespace InfinityCode.OnlineMapsExamples
 
         private GameObject tooltip;
 
+        DataContainer dContainer;
+
         private void Start()
         {
             //OnlineMaps.instance.AddMarker(Vector2.zero, "Marker 1");
@@ -32,11 +34,14 @@ namespace InfinityCode.OnlineMapsExamples
             OnlineMapsMarkerBase.OnMarkerDrawTooltip = delegate { };
 
             OnlineMaps.instance.OnUpdateLate += OnUpdateLate;
+
+            dContainer = FindObjectOfType<DataContainer>();
         }
 
         private void OnUpdateLate()
         {
             OnlineMapsMarker tooltipMarker = OnlineMaps.instance.tooltipMarker as OnlineMapsMarker;
+           
             if (tooltipMarker != null)
             {
                 if (tooltip == null)
@@ -49,8 +54,12 @@ namespace InfinityCode.OnlineMapsExamples
                 Vector2 point;
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(container.transform as RectTransform, screenPosition, null, out point);
                 (tooltip.transform as RectTransform).localPosition = point;
-                tooltip.GetComponentInChildren<Text>().text = tooltipMarker.label;
-                tooltip.transform.GetChild(1).GetComponent<Image>().sprite = Resources.Load<Sprite>(tooltipMarker.label);
+                tooltip.GetComponentInChildren<Text>().text = "Open Position";
+                tooltip.transform.GetChild(1).GetComponent<Image>().sprite = Resources.Load<Sprite>("Murales_Preview/" + tooltipMarker.label);
+                tooltip.GetComponent<CopyInTheDataContainer>().coordLat = tooltipMarker.latitude.ToString();
+                tooltip.GetComponent<CopyInTheDataContainer>().coordLong = tooltipMarker.longitude.ToString();
+
+                // tooltip.transform.GetComponent<ObjectPosition>().lon_d = 
 
             }
             else
