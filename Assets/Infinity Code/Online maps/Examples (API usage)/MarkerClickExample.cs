@@ -28,7 +28,8 @@ namespace InfinityCode.OnlineMapsExamples
 
         private void OnMarkerClick(OnlineMapsMarkerBase marker)
         {
-            // Show in console marker label.
+            OnlineMaps map = OnlineMaps.instance;
+            map.SetPosition(marker.longitude, marker.latitude);
             Debug.Log(marker.label);
         }
     }
