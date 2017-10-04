@@ -33,8 +33,10 @@ public class GameManager : Singleton<GameManager> {
     string coordLong;
     string coordLat;
 
-    public GameObject canvasPrincipale;
-    public OnlineMaps omElements;
+    double valueLng;
+    double valueLat;
+
+    public OnlineMaps onlineMapObject;
 
     private void Start()
     {
@@ -259,16 +261,26 @@ public class GameManager : Singleton<GameManager> {
     IEnumerator DelayOnlineMap()
     {
         yield return new WaitForSeconds(0.5f);
-        omElements.enabled = false;
+        onlineMapObject.enabled = false;
     }
 
-    public void OpenTheMap()
+    public void OpenInternalMap()
     {
-        canvasPrincipale.transform.GetChild(7).gameObject.SetActive(false);
-        omElements.enabled = true;
-       
-    }
+        valueLng = EventSystem.current.currentSelectedGameObject.GetComponent<Murales>().lon_d;
+        valueLat = EventSystem.current.currentSelectedGameObject.GetComponent<Murales>().lat_d;
+        menuPanel.gameObject.SetActive(false);
+        onlineMapObject.enabled = true;
+        onlineMapObject.SetPositionAndZoom(valueLng, valueLat, 18);
+        //StartCoroutine(ZoomInMap());
+    } 
 
+
+    //Serve un metodo che faccia fare lo zoom in modo smooth
+    IEnumerator ZoomInMap()
+    {
+        yield return new WaitForSeconds(0.1f);
+        onlineMapObject.SetPositionAndZoom(valueLng, valueLat, 18);
+    }
 
 
     public void IconActivator(int code)

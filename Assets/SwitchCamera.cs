@@ -17,10 +17,10 @@ public class SwitchCamera : MonoBehaviour {
     {
         cVuforia = cameraGoogle.GetComponent<Camera>();
         cGoogle = cameraVuforia.GetComponent<Camera>();
-        EnableGoogle();
+        HandleCameraActivation();
     }
 
-    public void EnableGoogle()
+    public void HandleCameraActivation()
     {
         if (activateMap == false)
         {
@@ -48,7 +48,7 @@ public class SwitchCamera : MonoBehaviour {
 	public void ActivateMode(bool mode)
     {
         activateMap = mode;
-        EnableGoogle();
+        HandleCameraActivation();
     }
 
 }

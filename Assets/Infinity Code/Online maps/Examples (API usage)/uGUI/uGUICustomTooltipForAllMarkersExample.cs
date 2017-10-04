@@ -26,9 +26,9 @@ namespace InfinityCode.OnlineMapsExamples
 
         private void Start()
         {
-            OnlineMaps.instance.AddMarker(Vector2.zero, "Marker 1");
-            OnlineMaps.instance.AddMarker(new Vector2(1, 1), "Marker 2");
-            OnlineMaps.instance.AddMarker(new Vector2(2, 1), "Marker 3");
+            //OnlineMaps.instance.AddMarker(Vector2.zero, "Marker 1");
+            //OnlineMaps.instance.AddMarker(new Vector2(1, 1), "Marker 2");
+            //OnlineMaps.instance.AddMarker(new Vector2(2, 1), "Marker 3");
             OnlineMapsMarkerBase.OnMarkerDrawTooltip = delegate { };
 
             OnlineMaps.instance.OnUpdateLate += OnUpdateLate;
