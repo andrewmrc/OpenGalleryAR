@@ -37,10 +37,7 @@ public class GameManager : Singleton<GameManager> {
     double valueLat;
 
     public OnlineMaps onlineMapObject;
-    public OnlineMapsMarkerBase markerbaseelements;
-
    
-    
 
     private void Start()
     {

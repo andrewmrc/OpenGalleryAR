@@ -24,8 +24,6 @@ namespace InfinityCode.OnlineMapsExamples
 
         private GameObject tooltip;
 
-        DataContainer dContainer;
-
         private void Start()
         {
             //OnlineMaps.instance.AddMarker(Vector2.zero, "Marker 1");
@@ -35,7 +33,6 @@ namespace InfinityCode.OnlineMapsExamples
 
             OnlineMaps.instance.OnUpdateLate += OnUpdateLate;
 
-            dContainer = FindObjectOfType<DataContainer>();
         }
 
         private void OnUpdateLate()
